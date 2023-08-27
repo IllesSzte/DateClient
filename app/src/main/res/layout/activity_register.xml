@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#95BEE8"
-    tools:context=".MainActivity">
+    tools:context=".activity.RegisterActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/containerCard"
@@ -34,7 +34,7 @@
                 android:layout_marginTop="60dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/userName"
+                    android:id="@+id/userNameRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -51,7 +51,7 @@
                 android:layout_marginTop="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
+                    android:id="@+id/passwordRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -68,23 +68,25 @@
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/login"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:layout_weight="1"
-                    android:text="Login" />
+
 
                 <Button
-                    android:id="@+id/register"
+                    android:id="@+id/registerUserRegister"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:layout_weight="1"
                     android:text="Register" />
+                <Button
+                    android:id="@+id/cancelUserRegister"
+                    android:onClick="cancel"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:text="Cancel" />
 
             </LinearLayout>
         </LinearLayout>

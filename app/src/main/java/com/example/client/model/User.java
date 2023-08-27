@@ -1,20 +1,8 @@
 package com.example.client.model;
 
 public class User {
-    private int id;
     private String name;
     private String password;
-    public User() {
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -29,6 +17,11 @@ public class User {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public User(String name, String password) {
+        this.name = name;
         this.password = password;
     }
 }
