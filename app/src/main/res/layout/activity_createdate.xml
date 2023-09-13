@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#95BEE8"
-    tools:context=".activity.LoginActivity">
+    tools:context=".activity.CreateDate">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/containerCard"
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="450dp"
         android:layout_margin="16dp"
         app:cardBackgroundColor="#E8E8E8"
         app:cardElevation="4dp"
@@ -27,40 +27,56 @@
             android:padding="16dp">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/usernameLayout"
+                android:id="@+id/dateTitleLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/userName"
+                    android:id="@+id/dateTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:hint="Username"
+                    android:hint="Title"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordLayout"
+                android:id="@+id/datePriceLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
+                    android:id="@+id/datePrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
 
-                    android:hint="Password"
-                    android:inputType="textPassword" />
+                    android:hint="Price"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dateDescriptionLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dateDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+
+                    android:hint="Description"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
             <!-- Gombokat egy vízszintes LinearLayout-ben helyezzük el -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -68,25 +84,25 @@
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/logInUserLogin"
-                    android:onClick="login"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:layout_weight="1"
-                    android:text="Login" />
+
 
                 <Button
-                    android:id="@+id/register"
-                    android:onClick="register"
+                    android:id="@+id/createNewDate"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:layout_weight="1"
-                    android:text="Register" />
+                    android:text="Create" />
+                <Button
+                    android:id="@+id/cancle"
+                    android:onClick="cancel"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:text="Cancel" />
 
             </LinearLayout>
         </LinearLayout>
@@ -96,7 +112,7 @@
         android:id="@+id/dateItUpLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date It Up"
+        android:text="Create a new date"
         android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"

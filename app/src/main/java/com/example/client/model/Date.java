@@ -4,6 +4,7 @@ public class Date {
     private String title;
     private String description;
     private int price;
+    private int owner = 0;
 
     public String getName() {
         return title;

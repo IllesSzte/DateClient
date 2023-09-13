@@ -1,5 +1,8 @@
 package com.example.client.activity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,9 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.client.R;
 import com.example.client.adapter.DateAdapter;
 import com.example.client.api.DateApi;
-import com.example.client.api.UserApi;
 import com.example.client.model.Date;
-import com.example.client.model.User;
 import com.example.client.retrofit.RetrofitService;
 
 import java.util.List;
@@ -35,17 +36,20 @@ public class DateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dates);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        menuButton = findViewById(R.id.menuButton); // Hozzáadva
+        menuButton = findViewById(R.id.menuButton);
         loadDate();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_popup, menu);
         return true;
     }
+
     public void onMenuButtonClick(View view) {
         showPopupMenu(view); // A menü gomb kattintásának kezelése
     }
+
     private void showPopupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.inflate(R.menu.menu_popup);
@@ -53,8 +57,13 @@ public class DateActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 int itemId = menuItem.getItemId();
-                if (itemId == R.id.menu_item_button) {
-                    showPopupMenu(view);
+                if (itemId == R.id.menu_item_add_new_date) {
+                    return true;
+                } else if (itemId == R.id.menu_item_profile) {
+                    return true;
+                } else if (itemId == R.id.menu_item_profile_logout) {
+                    Intent intent = new Intent(DateActivity.this, LoginActivity.class);
+                    startActivity(intent);
                     return true;
                 } else {
                     return false;
@@ -91,5 +100,15 @@ public class DateActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadDate();
+    }
+
+    public void menu_logout(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void createNewDateFab(View view) {
+        Intent intent = new Intent(this, CreateDate.class);
+        startActivity(intent);
     }
 }

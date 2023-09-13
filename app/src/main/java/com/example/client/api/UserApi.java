@@ -20,6 +20,9 @@ public interface UserApi {
     @GET("/get-user-by-id")
     Call<User> getUserById(@Query("id") int id);
 
-    @GET("/get-user-by-name")
+    @GET("/user/get-by-name-and-password")
+    Call<User> getUserByNameAndPassword(@Query("name") String name, @Query("password") String password);
+
+    @GET("/user/get-by-name-and-password")
     Call<User> getUserByName(@Query("name") String name);
 }
