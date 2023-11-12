@@ -13,6 +13,10 @@ import com.example.client.model.User;
 import com.example.client.retrofit.RetrofitService;
 import com.example.client.api.UserApi;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +32,26 @@ public class RegisterActivity extends AppCompatActivity {
 
         RetrofitService retrofitService = new RetrofitService();
         UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
-
         buttonSave.setOnClickListener(view -> {
             String name = String.valueOf(inputEditTextName.getText());
             String password = String.valueOf(inputEditTextPassword.getText());
             User user = new User(name, password);
-            userApi.save(user);
-            home(view);
+            Call<User> call = userApi.save(user);
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    if (response.isSuccessful()) {
+                        System.out.println("Siker");
+                        home(view);
+                    } else {
+                        System.out.println("Hibas mentes");
+                    }
+                }
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    System.out.println("nope");
+                }
+            });
         });
     }
 
@@ -44,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void home(View view) {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, DateActivity.class);
         startActivity(intent);
     }
 }

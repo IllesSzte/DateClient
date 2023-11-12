@@ -108,7 +108,7 @@ public class DateActivity extends AppCompatActivity {
     }
 
     public void createNewDateFab(View view) {
-        Intent intent = new Intent(this, CreateDate.class);
+        Intent intent = new Intent(this, Second.class);
         startActivity(intent);
     }
 }

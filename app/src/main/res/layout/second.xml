@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Create a new date label -->
+    <TextView
+        android:id="@+id/dateItUpLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create a new date"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
+
+    <!-- Title -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Description -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Price -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Place (Spinner) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerPlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/place_options" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Crowded (Spinner) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerCrowded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/crowded_options" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Activity (Spinner) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/activity_options" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Season (Spinner) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerSeason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/season_options" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Duration (Spinner) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/duration_options" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Daytime (Spinner) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerDaytime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/daytime_options" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

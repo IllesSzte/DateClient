@@ -79,8 +79,8 @@
                     android:text="Login" />
 
                 <Button
-                    android:id="@+id/register"
-                    android:onClick="register"
+                    android:id="@+id/registerButton"
+                    android:onClick="registerOnclick"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

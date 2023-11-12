@@ -36,9 +36,10 @@ public class LoginActivity extends AppCompatActivity {
         EditText inputEditTextName = findViewById(R.id.userName);
         EditText inputEditTextPassword = findViewById(R.id.password);
         Button buttonLogin = findViewById(R.id.logInUserLogin);
-
+        Button buttonRegister = findViewById(R.id.registerButton);
         RetrofitService retrofitService = new RetrofitService();
         UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
+        buttonRegister.setOnClickListener(this::register);
         buttonLogin.setOnClickListener(view -> {
             String name = String.valueOf(inputEditTextName.getText());
             String password = String.valueOf(inputEditTextPassword.getText());

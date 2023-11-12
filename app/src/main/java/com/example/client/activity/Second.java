@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.client.R;
 import com.example.client.api.DateApi;
@@ -24,21 +25,27 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CreateDate extends AppCompatActivity {
+public class Second extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_createdate);
+        setContentView(R.layout.second);
         initializeComponents();
     }
 
     private void initializeComponents() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         int id = sharedPreferences.getInt("id", 0);
-        TextInputEditText inputEditTextTitle = findViewById(R.id.dateTitle);
-        TextInputEditText inputEditTextPrice = findViewById(R.id.datePrice);
-        TextInputEditText inputEditTextDescription = findViewById(R.id.dateDescription);
+        EditText inputEditTextTitle = findViewById(R.id.editTitle);
+        EditText inputEditTextDescription = findViewById(R.id.editDescription);
+        EditText inputEditTextPrice = findViewById(R.id.editPrice);
+        Spinner spinnerPlace = findViewById(R.id.spinnerPlace);
+        Spinner spinnerCrowded = findViewById(R.id.spinnerCrowded);
+        Spinner spinnerActivity = findViewById(R.id.spinnerActivity);
+        Spinner spinnerSeason = findViewById(R.id.spinnerSeason);
+        Spinner spinnerDuration = findViewById(R.id.spinnerDuration);
+        Spinner spinnerDaytime = findViewById(R.id.spinnerDaytime);
         Button buttonCreate = findViewById(R.id.createNewDate);
 
         RetrofitService retrofitService = new RetrofitService();
@@ -48,7 +55,23 @@ public class CreateDate extends AppCompatActivity {
             String title = String.valueOf(inputEditTextTitle.getText());
             int price = Integer.parseInt(inputEditTextPrice.getText().toString());
             String description = String.valueOf(inputEditTextDescription.getText());
-            Date date = new Date(title, description, price);
+            String selectedPlace = spinnerPlace.getSelectedItem().toString();
+            String selectedCrowded = spinnerCrowded.getSelectedItem().toString();
+            String selectedActivity = spinnerActivity.getSelectedItem().toString();
+            String selectedSeason = spinnerSeason.getSelectedItem().toString();
+            String selectedDuration = spinnerDuration.getSelectedItem().toString();
+            String selectedDaytime = spinnerDaytime.getSelectedItem().toString();
+            Date date = new Date(
+                    title,
+                    description,
+                    price,
+                    selectedPlace,
+                    selectedCrowded,
+                    selectedActivity,
+                    selectedSeason,
+                    selectedDuration,
+                    selectedDaytime
+            );
             Call<User> call = dateApi.save(date, id);
             call.enqueue(new Callback<User>() {
                 @Override

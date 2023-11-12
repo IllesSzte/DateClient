@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">Client</string>
+
+    <string-array name="place_options">
+        <item>Indoor</item>
+        <item>Outdoor</item>
+        <item>Anywhere</item>
+    </string-array>
+
+    <string-array name="crowded_options">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>Very</item>
+    </string-array>
+
+    <string-array name="activity_options">
+        <item>Scenic</item>
+        <item>Romantic</item>
+        <item>Relaxing</item>
+        <item>Peaceful</item>
+        <item>Fun</item>
+        <item>Entertaining</item>
+        <item>Educational</item>
+        <item>Cultural</item>
+        <item>Culinary</item>
+        <item>Creative</item>
+        <item>Adventurous</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="season_options">
+        <item>Spring</item>
+        <item>Summer</item>
+        <item>Autumn</item>
+        <item>Winter</item>
+        <item>Anytime</item>
+    </string-array>
+
+    <string-array name="duration_options">
+        <item>Few hours</item>
+        <item>Half day</item>
+        <item>Full day</item>
+    </string-array>
+
+    <string-array name="daytime_options">
+        <item>Day</item>
+        <item>Night</item>
+        <item>Anytime</item>
+    </string-array>
 </resources>
