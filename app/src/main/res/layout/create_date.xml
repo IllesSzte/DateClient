@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -14,7 +16,7 @@
         android:text="Create a new date"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="0dp" />
 
     <!-- Title -->
     <com.google.android.material.textfield.TextInputLayout
@@ -58,11 +60,17 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Place (Spinner) -->
-    <com.google.android.material.textfield.TextInputLayout
+    <!-- Place -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/placeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Place:" />
 
         <Spinner
             android:id="@+id/spinnerPlace"
@@ -70,13 +78,17 @@
             android:layout_height="wrap_content"
             android:entries="@array/place_options" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <!-- Crowded (Spinner) -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/crowdedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crowded:" />
 
         <Spinner
             android:id="@+id/spinnerCrowded"
@@ -89,8 +101,12 @@
     <!-- Activity (Spinner) -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/activityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity:" />
 
         <Spinner
             android:id="@+id/spinnerActivity"
@@ -103,8 +119,12 @@
     <!-- Season (Spinner) -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/seasonLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Season:" />
 
         <Spinner
             android:id="@+id/spinnerSeason"
@@ -117,8 +137,12 @@
     <!-- Duration (Spinner) -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/durationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duratin:" />
 
         <Spinner
             android:id="@+id/spinnerDuration"
@@ -131,8 +155,12 @@
     <!-- Daytime (Spinner) -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/daytimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daytime:" />
 
         <Spinner
             android:id="@+id/spinnerDaytime"
@@ -141,4 +169,51 @@
             android:entries="@array/daytime_options" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Buttons -->
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/createNewDateSecond"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="Create" />
+
+        <Button
+            android:id="@+id/cancelSecond"
+            style="@style/Widget.MaterialComponents.Button"
+            android:onClick="cancelButtonCreateDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:text="Cancel" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="0dp"
+            android:layout_height="51dp"
+            android:minHeight="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_menu" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>

@@ -1,17 +1,17 @@
 package com.example.client.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.client.R;
+import com.example.client.api.UserApi;
 import com.example.client.model.User;
 import com.example.client.retrofit.RetrofitService;
-import com.example.client.api.UserApi;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void home(View view) {
-        Intent intent = new Intent(this, DateActivity.class);
+        Intent intent = new Intent(this, MyDatesActivity.class);
         startActivity(intent);
     }
 }

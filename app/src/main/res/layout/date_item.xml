@@ -1,52 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:stretchColumns="0,1">
 
-    <TextView
-        android:id="@+id/dateListItem_title"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Date Name"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Első sor -->
+    <TableRow>
 
-    <TextView
-        android:id="@+id/dateListItem_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Description"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dateListItem_title"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintWidth_default="wrap" />
+        <TextView
+            android:id="@+id/dateListItem_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title: "
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/dateListItem_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Price"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/dateListItem_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/dateListItem_title"
-        app:layout_constraintVertical_bias="1.0" />
+        <EditText
+            android:id="@+id/dateListItem_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: "
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </TableRow>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#C2C2C2"
-        app:layout_constraintTop_toBottomOf="@id/dateListItem_description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0" />
+    <!-- Második sor -->
+    <TableRow>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/dateListItem_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:text="Description: "
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </TableRow>
+
+    <!-- Harmadik sor -->
+    <TableRow>
+
+        <TextView
+            android:id="@+id/dateListItem_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Place: "
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dateListItem_crowded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crowded: "
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </TableRow>
+
+    <!-- Negyedik sor -->
+    <TableRow>
+
+        <TextView
+            android:id="@+id/dateListItem_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity: "
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dateListItem_season"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Season: "
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </TableRow>
+
+    <!-- Ötödik sor -->
+    <TableRow>
+
+        <TextView
+            android:id="@+id/dateListItem_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duration: "
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dateListItem_daytime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daytime: "
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </TableRow>
+
+</TableLayout>

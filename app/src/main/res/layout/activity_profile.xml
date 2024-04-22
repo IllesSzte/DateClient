@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".activity.ProfileActivity">
+
+
+    <!-- Profil képe felül középen -->
+    <ImageView
+    android:id="@+id/profileImageView"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:src="@drawable/profile"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="24dp" />
+
+    <!-- Felhasználó neve -->
+    <TextView
+        android:id="@+id/usernameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Felhasználó neve"
+        android:layout_below="@id/profileImageView"
+
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
+    <!-- Randik száma -->
+    <TextView
+        android:id="@+id/dateCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 randi"
+        android:textSize="18sp"
+        android:layout_below="@id/usernameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Partner oldalra vezető gomb -->
+    <Button
+        android:id="@+id/partnerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Partner"
+        android:layout_below="@id/dateCountTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
+
+    <!-- Randik listája -->
+    <Button
+        android:id="@+id/myDatesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My dates"
+        android:layout_below="@id/partnerButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
+
+    <!-- BottomNavigationView -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationViewProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_menu" />
+
+</RelativeLayout>

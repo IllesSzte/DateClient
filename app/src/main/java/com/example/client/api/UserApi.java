@@ -17,7 +17,7 @@ public interface UserApi {
     @POST("/user/create")
     Call<User> save(@Body User user);
 
-    @GET("/get-user-by-id")
+    @GET("/user/get-user-by-id")
     Call<User> getUserById(@Query("id") int id);
 
     @GET("/user/get-by-name-and-password")

@@ -27,11 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         initializeComponents();
     }
 
-    public void register(View view) {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
-    }
-
     private void initializeComponents() {
         EditText inputEditTextName = findViewById(R.id.userName);
         EditText inputEditTextPassword = findViewById(R.id.password);
@@ -76,8 +71,13 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void home(View view) {
-        Intent intent = new Intent(this, DateActivity.class);
+    private void register(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    private void home(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 }

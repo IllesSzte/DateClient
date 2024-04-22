@@ -1,7 +1,23 @@
 package com.example.client.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
-    private int id;
+    public int id;
+    private String userName;
+    private String password;
+    private int partnerId;
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
 
     public int getId() {
         return id;
@@ -11,15 +27,12 @@ public class User {
         this.id = id;
     }
 
-    private String name;
-    private String password;
-
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -30,8 +43,11 @@ public class User {
         this.password = password;
     }
 
-    public User(String name, String password) {
-        this.name = name;
-        this.password = password;
+    public int getPartnerId() {
+        return partnerId;
+    }
+
+    public void setPartnerId(int partnerId) {
+        this.partnerId = partnerId;
     }
 }

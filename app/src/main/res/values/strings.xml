@@ -1,50 +1,72 @@
 <resources>
     <string name="app_name">Client</string>
+    <string name="duration">Duration:</string>
+    <string name="daytime">Daytime:</string>
+    <string name="season">Season:</string>
+    <string name="activity">Activity:</string>
+    <string name="crowded">Crowded:</string>
+    <string name="place">Place:</string>
+    <string name="price">Price</string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="create_a_new_date">Create a new date</string>
+    <string name="cancel">Cancel</string>
+    <string name="create">Create</string>
 
+    <!-- Place options -->
     <string-array name="place_options">
+        <item>Does not matter</item>
         <item>Indoor</item>
         <item>Outdoor</item>
-        <item>Anywhere</item>
     </string-array>
 
+    <!-- Crowded options -->
     <string-array name="crowded_options">
+        <item>Does not matter</item>
+        <item>High</item>
         <item>Low</item>
         <item>Medium</item>
-        <item>Very</item>
     </string-array>
 
+    <!-- Activity options -->
     <string-array name="activity_options">
-        <item>Scenic</item>
+        <item>Does not matter</item>
+        <item>Adventurous</item>
+        <item>Creative</item>
+        <item>Culinary</item>
+        <item>Cultural</item>
+        <item>Educational</item>
+        <item>Entertaining</item>
+        <item>Fun</item>
+        <item>Other</item>
+        <item>Peaceful</item>
         <item>Romantic</item>
         <item>Relaxing</item>
-        <item>Peaceful</item>
-        <item>Fun</item>
-        <item>Entertaining</item>
-        <item>Educational</item>
-        <item>Cultural</item>
-        <item>Culinary</item>
-        <item>Creative</item>
-        <item>Adventurous</item>
-        <item>Other</item>
+        <item>Scenic</item>
     </string-array>
 
+    <!-- Season options -->
     <string-array name="season_options">
+        <item>Does not matter</item>
+        <item>Autumn</item>
         <item>Spring</item>
         <item>Summer</item>
-        <item>Autumn</item>
         <item>Winter</item>
-        <item>Anytime</item>
     </string-array>
 
+    <!-- Duration options -->
     <string-array name="duration_options">
-        <item>Few hours</item>
+        <item>Does not matter</item>
+        <item>A few hours</item>
+        <item>All day</item>
         <item>Half day</item>
-        <item>Full day</item>
+        <item>Less than an hour</item>
     </string-array>
 
+    <!-- Daytime options -->
     <string-array name="daytime_options">
-        <item>Day</item>
+        <item>Does not matter</item>
+        <item>Daytime</item>
         <item>Night</item>
-        <item>Anytime</item>
     </string-array>
 </resources>
