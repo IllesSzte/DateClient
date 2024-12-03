@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        int id = sharedPreferences.getInt("id", 0);
+        Integer id = sharedPreferences.getInt("id", 0);
 
         EditText inputEditTextPrice = findViewById(R.id.priceEditText);
         Spinner inputEditTextPlace = findViewById(R.id.placeSpinner);
@@ -52,13 +52,17 @@ public class HomeActivity extends AppCompatActivity {
         Spinner inputEditTextSeason = findViewById(R.id.seasonSpinner);
         Spinner inputEditTextDuration = findViewById(R.id.durationSpinner);
         Spinner inputEditTextDaytime = findViewById(R.id.daytimeSpinner);
-        Button buttonCreate = findViewById(R.id.search_button);
-
+        Button buttonSearch = findViewById(R.id.search_button);
+        System.out.println(inputEditTextPrice.getText().toString());
         RetrofitService retrofitService = new RetrofitService();
         DateApi dateApi = retrofitService.getRetrofit().create(DateApi.class);
 
-        buttonCreate.setOnClickListener(view -> {
-            int price = Integer.parseInt(inputEditTextPrice.getText().toString());
+        if (inputEditTextPrice.getText().toString().isEmpty()) {
+            inputEditTextPrice.setText("0");
+        }
+        buttonSearch.setOnClickListener(view -> {
+
+            Integer price = Integer.parseInt(inputEditTextPrice.getText().toString());
             String place = inputEditTextPlace.getSelectedItem().toString();
             String crowded = inputEditTextCrowded.getSelectedItem().toString();
             String activity = inputEditTextActivity.getSelectedItem().toString();
@@ -80,7 +84,9 @@ public class HomeActivity extends AppCompatActivity {
                         RecyclerView recyclerView = findViewById(R.id.recyclerView);
                         DateAdapter adapter = new DateAdapter(dates); // Itt be kell állítanod a saját RecyclerViewAdapteredet
                         recyclerView.setAdapter(adapter);
+
                     } else {
+                        Log.e(TAG, "User id not found: " + id);
                         // Hiba esetén itt lehet kezelni a hibát
                         Log.e(TAG, "Hiba a kérésben: " + response.message());
                     }
