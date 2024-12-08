@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.client.R;
 import com.example.client.adapter.DateAdapter;
 import com.example.client.api.DateApi;
+import com.example.client.interfaces.OnItemClickListenerInterface;
 import com.example.client.model.Date;
 import com.example.client.retrofit.RetrofitService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -83,9 +84,20 @@ public class MyDatesActivity extends AppCompatActivity {
     }
 
     private void populateListView(List<Date> dates) {
-        DateAdapter dateAdapter = new DateAdapter(dates);
+        // Az adapter módosítása, hogy közvetlenül átadja a dátumot az Intent-en keresztül
+        DateAdapter dateAdapter = new DateAdapter(dates, this, new OnItemClickListenerInterface() {
+            @Override
+            public void onItemClick(Date date) {
+                // Az Intent-ben átadjuk a Date objektumot
+                Intent intent = new Intent(MyDatesActivity.this, DateActivity.class);
+                intent.putExtra("selectedDate", date); // A Date objektumot átadjuk
+                startActivity(intent);
+            }
+        });
         recyclerView.setAdapter(dateAdapter);
     }
+
+
 
     @Override
     protected void onResume() {

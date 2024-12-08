@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.client.R;
 import com.example.client.adapter.DateAdapter;
 import com.example.client.api.DateApi;
+import com.example.client.interfaces.OnItemClickListenerInterface;
 import com.example.client.model.Date;
 import com.example.client.retrofit.RetrofitService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -36,7 +37,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         initializeComponents();
-
     }
 
     private void initializeComponents() {
@@ -53,10 +53,9 @@ public class HomeActivity extends AppCompatActivity {
         Spinner inputEditTextDuration = findViewById(R.id.durationSpinner);
         Spinner inputEditTextDaytime = findViewById(R.id.daytimeSpinner);
         Button buttonSearch = findViewById(R.id.search_button);
-        System.out.println(inputEditTextPrice.getText().toString());
+
         RetrofitService retrofitService = new RetrofitService();
         DateApi dateApi = retrofitService.getRetrofit().create(DateApi.class);
-
 
         buttonSearch.setOnClickListener(view -> {
             if (inputEditTextPrice.getText().toString().isEmpty()) {
@@ -69,6 +68,7 @@ public class HomeActivity extends AppCompatActivity {
             String season = inputEditTextSeason.getSelectedItem().toString();
             String duration = inputEditTextDuration.getSelectedItem().toString();
             String dayTime = inputEditTextDaytime.getSelectedItem().toString();
+
             Call<List<Date>> call = dateApi.getFilteredDates(id, price, place, crowded, activity, season, duration, dayTime);
             call.enqueue(new Callback<List<Date>>() {
                 @Override
@@ -81,27 +81,31 @@ public class HomeActivity extends AppCompatActivity {
 
                         // RecyclerView frissítése az új adatokkal
                         List<Date> dates = response.body();
-                        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-                        DateAdapter adapter = new DateAdapter(dates); // Itt be kell állítanod a saját RecyclerViewAdapteredet
+                        DateAdapter adapter = new DateAdapter(dates, HomeActivity.this, new OnItemClickListenerInterface() {
+                            @Override
+                            public void onItemClick(Date date) {
+                                // Az Intent-ben átadjuk a Date objektumot
+                                Intent intent = new Intent(HomeActivity.this, DateActivity.class);
+                                intent.putExtra("selectedDate", date); // A Date objektumot átadjuk
+                                startActivity(intent);
+                            }
+                        });
                         recyclerView.setAdapter(adapter);
-
                     } else {
                         Log.e(TAG, "User id not found: " + id);
-                        // Hiba esetén itt lehet kezelni a hibát
                         Log.e(TAG, "Hiba a kérésben: " + response.message());
                     }
                 }
 
                 @Override
                 public void onFailure(Call<List<Date>> call, Throwable t) {
-                    // Hálózati hiba esetén itt lehet kezelni a hibát
                     Log.e(TAG, "Hálózati hiba: " + t.getMessage());
                 }
             });
         });
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home_bottom_menu) {
                 Intent home = new Intent(HomeActivity.this, HomeActivity.class);
@@ -121,6 +125,5 @@ public class HomeActivity extends AppCompatActivity {
             }
             return false;
         });
-
     }
 }

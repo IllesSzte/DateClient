@@ -1,13 +1,16 @@
 package com.example.client.model;
 
+import java.io.Serializable;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Date {
+@AllArgsConstructor
+public class Date  implements Serializable {
     private int id;
     private String title;
     private String description = title;
