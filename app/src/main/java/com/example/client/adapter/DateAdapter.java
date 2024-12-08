@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.client.R;
 import com.example.client.holder.DateHolder;
 import com.example.client.model.Date;
@@ -32,15 +33,18 @@ public class DateAdapter extends RecyclerView.Adapter<DateHolder> {
     @Override
     public void onBindViewHolder(@NonNull DateHolder holder, int position) {
         Date date = dates.get(position);
-        holder.title.setText("Title: " + date.getName());
+        holder.title.setText("Title: " +date.getTitle());
         holder.description.setText("Description: " + date.getDescription());
         holder.price.setText("Price: " + String.valueOf(date.getPrice()));
         holder.place.setText("Place: " + date.getPlace());
         holder.crowded.setText("Crowded: " + date.getCrowded());
         holder.activity.setText("Activity: " + date.getActivity());
-        holder.season.setText("Season: " + date.getSeason());
         holder.duration.setText("Duration: " + date.getDuration());
-        holder.daytime.setText("Daytime: " + date.getDaytime());
+        Glide.with(holder.itemView.getContext())
+                .load(date.getPicture().get(0))
+                .placeholder(R.drawable.heart) // Alapértelmezett kép, míg betölt
+                .error(R.drawable.ic_button) // Hiba esetén megjelenített kép
+                .into(holder.picture);
     }
     @Override
     public int getItemCount() {

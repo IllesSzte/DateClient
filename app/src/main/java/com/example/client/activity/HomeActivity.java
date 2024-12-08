@@ -57,11 +57,11 @@ public class HomeActivity extends AppCompatActivity {
         RetrofitService retrofitService = new RetrofitService();
         DateApi dateApi = retrofitService.getRetrofit().create(DateApi.class);
 
-        if (inputEditTextPrice.getText().toString().isEmpty()) {
-            inputEditTextPrice.setText("0");
-        }
-        buttonSearch.setOnClickListener(view -> {
 
+        buttonSearch.setOnClickListener(view -> {
+            if (inputEditTextPrice.getText().toString().isEmpty()) {
+                inputEditTextPrice.setText("0");
+            }
             Integer price = Integer.parseInt(inputEditTextPrice.getText().toString());
             String place = inputEditTextPlace.getSelectedItem().toString();
             String crowded = inputEditTextCrowded.getSelectedItem().toString();
